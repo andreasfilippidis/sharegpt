@@ -4,7 +4,7 @@
 
 ````bash
 git clone https://github.com/andreasfilippidis/sharegpt
-cd vacation_request_portal
+cd sharegpt
 ````
 
 ## Install docker.
