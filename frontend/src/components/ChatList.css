@@ -1,0 +1,63 @@
+.chat-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .chat-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .chat-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.empty-state {
+  background-color: white;
+  border-radius: 0.75rem;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.empty-icon {
+  width: 3rem;
+  height: 3rem;
+  color: #9ca3af;
+  margin: 0 auto;
+}
+
+.empty-title {
+  margin-top: 0.5rem;
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: #1f2937;
+}
+
+.empty-description {
+  margin-top: 0.25rem;
+  color: #6b7280;
+}
+
+.empty-action {
+  margin-top: 1.5rem;
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+  .empty-state {
+    background-color: #1f2937;
+  }
+  
+  .empty-title {
+    color: #f9fafb;
+  }
+  
+  .empty-description {
+    color: #9ca3af;
+  }
+}

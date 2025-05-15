@@ -1,0 +1,38 @@
+/* index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 249, 250, 251;
+  --background-end-rgb: 243, 244, 246;
+}
+
+/* Dark mode variables */
+.dark {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 17, 24, 39;
+  --background-end-rgb: 31, 41, 55;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+          to bottom right,
+          rgb(var(--background-start-rgb)),
+          rgb(var(--background-end-rgb))
+  )
+  fixed;
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Global animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}

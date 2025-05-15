@@ -1,0 +1,79 @@
+services:
+  app:
+    build:
+      context: ./backend
+    container_name: laravel_app
+    restart: unless-stopped
+    volumes:
+      - ./backend:/var/www/html
+    networks:
+      - app-network
+    depends_on:
+      - mariadb
+
+  nginx:
+    image: nginx:stable-alpine
+    container_name: nginx_server
+    restart: unless-stopped
+    ports:
+      - "8000:80"
+    volumes:
+      - ./backend:/var/www/html
+      - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - app
+    networks:
+      - app-network
+
+  mariadb:
+    image: mariadb:10.5
+    container_name: mariadb
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: sharegpt
+      MYSQL_USER: user
+      MYSQL_PASSWORD: secret
+    volumes:
+      - db_data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    networks:
+      - app-network
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin
+    restart: unless-stopped
+    ports:
+      - "8080:80"
+    environment:
+      PMA_HOST: mariadb
+      MYSQL_ROOT_PASSWORD: root
+    depends_on:
+      - mariadb
+    networks:
+      - app-network
+
+
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: react_app
+    ports:
+      - "3000:5173"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    working_dir: /app
+    networks:
+      - app-network
+
+volumes:
+  db_data:
+
+networks:
+  app-network:
+    driver: bridge

@@ -1,0 +1,56 @@
+.model-badge {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 9999px;
+  font-weight: 500;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  border-width: 1px;
+}
+
+.model-badge-indicator {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background-color: currentColor;
+  margin-right: 0.375rem;
+}
+
+.model-badge-sm {
+  font-size: 0.75rem;
+  padding: 0.125rem 0.5rem;
+}
+
+.model-badge-md {
+  font-size: 0.8125rem;
+  padding: 0.25rem 0.625rem;
+}
+
+.model-badge-lg {
+  font-size: 1rem;
+  padding: 0.375rem 0.75rem;
+}
+
+/* Model-specific colors */
+.model-badge-chatgpt {
+  background-image: linear-gradient(to right, #f0fdf4, #dcfce7);
+  color: #15803d;
+  border-color: #bbf7d0;
+}
+
+.model-badge-claude {
+  background-image: linear-gradient(to right, #faf5ff, #f3e8ff);
+  color: #7e22ce;
+  border-color: #e9d5ff;
+}
+
+.model-badge-deepseek {
+  background-image: linear-gradient(to right, #eff6ff, #dbeafe);
+  color: #1d4ed8;
+  border-color: #bfdbfe;
+}
+
+.model-badge-unknown {
+  background-image: linear-gradient(to right, #f9fafb, #f3f4f6);
+  color: #4b5563;
+  border-color: #e5e7eb;
+}
