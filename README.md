@@ -3,7 +3,7 @@
 ## Clone the repository to your local machine
 
 ````bash
-git clone [https://github.com/empyreanq/vacation_request_portal](https://github.com/andreasfilippidis/sharegpt)
+git clone https://github.com/empyreanq/vacation_request_portal
 cd vacation_request_portal
 ````
 
